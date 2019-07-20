@@ -68,13 +68,22 @@ class Navbar extends Component {
     }
 }
 
+/*
+  All we need from the container
+*/
 Navbar.propTypes = {
     logoutUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired
 }
 
+/*
+  All we need from the container
+*/
 const mapStateToProps = (state) => ({
     auth: state.auth
 })
 
+/*
+  Connect to  the container state
+*/
 export default connect(mapStateToProps, {logoutUser})(withRouter(Navbar));

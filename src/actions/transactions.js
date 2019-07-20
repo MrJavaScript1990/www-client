@@ -1,6 +1,15 @@
 import axios from 'axios';
 import {BATCH_TRANSACTIONS,FIELD_BATCH_TRANSACTIONS} from './types';
 
+/*
+  Transaction Function
+*/
+
+
+/*
+  Call the Api for retrieve the data
+*/
+
 export const transactionRequest = (transactionData) => dispatch => {
     axios.post('/api/jobs/transactions', transactionData)
         .then(res => {

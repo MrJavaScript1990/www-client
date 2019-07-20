@@ -4,7 +4,7 @@ import setAuthToken from '../setAuthToken';
 import jwt_decode from 'jwt-decode';
 
 /*
-  Auth Functions:
+  Auth Functions
 */
 
 

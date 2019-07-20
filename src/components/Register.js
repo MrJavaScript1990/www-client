@@ -266,5 +266,7 @@ const mapStateToProps = state => ({
     errors: state.errors
 });
 
-//Connect to containers state
+/*
+  Connect to  the container state
+*/
 export default connect(mapStateToProps,{ registerUser })(withRouter(Register))
