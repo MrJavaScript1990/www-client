@@ -14,6 +14,13 @@ import classnames from "classnames";
 import PropTypes from 'prop-types';
 
 
+/*
+  two imports below are used for a third-part module which
+  is responsible to show a spinner to user
+*/
+import {css} from '@emotion/core';
+import {RingLoader} from 'react-spinners';
+
 
 /*
 
@@ -24,6 +31,13 @@ funds between users
 
 import {newTransfer} from "../actions/transfer";
 
+//spinner CSS
+const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+`;
+
 class Home extends Component {
     constructor() {
         super();
@@ -32,6 +46,7 @@ class Home extends Component {
             dstUser: '',                        //Destination User Email
             amount: '',
             currencyType: '',
+            spinner:false,
             errors: {},
             transfer:{},                        //Data that will back from props and indicates if transfer was successful
         };
@@ -47,6 +62,7 @@ class Home extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        this.setState({spinner:true});
         const transferData = {
             srcUser: this.state.srcUser,
             dstUser: this.state.dstUser,
@@ -59,23 +75,15 @@ class Home extends Component {
     componentWillReceiveProps(nextProps) {
 
         //get the new  props from container and put them into component state.
-
+        this.setState({spinner:false});
         if (nextProps.errors) {
             this.setState({
                 errors: nextProps.errors
-            });
-        }else{
-            this.setState({
-                errors:null
             });
         }
         if (nextProps.transfer) {
             this.setState({
                 transfer: nextProps.transfer
-            });
-        }else{
-            this.setState({
-                transfer:null
             });
         }
     }
@@ -106,19 +114,30 @@ class Home extends Component {
         // if user is logged in we show him this
         const Authenticated =
             <div className="container" style={{marginTop: '50px', width: '700px'}}>
-                <h2 style={{marginBottom: '40px'}}>Transfer</h2>
+                <div class="row" style={{margin:0}}>
+                    <h2 style={{marginBottom: '40px'}}>Transfer</h2>
+                    <div style={{marginLeft:10}}>
+                    <RingLoader
+                        css={override}
+                        sizeUnit={"px"}
+                        size={40}
+                        color={'#123abc'}
+                        loading={this.state.spinner}
 
-                /*
+                    />
+                    </div>
+                </div>
+                {/*
                 some error and success message implementation to show to user
-                */
+                */}
                 {errors.errText && (<h6 style={{marginBottom:15,color:'red'}}>{errors.errText}</h6>)}
                 {transfer.message && (<h6 style={{marginBottom:15,color:'green'}}>{transfer.message}</h6>)}
                 {errors.errText && (<h6 style={{marginBottom:15,color:'red'}}>{'Transaction reference : '+ errors.refNumber}</h6>)}
                 {transfer.message && (<h6 style={{marginBottom:15,color:'green'}}>{'Transaction reference : ' + transfer.ref}</h6>)}
 
-                /*
+                {/*
                 form to get the data from user
-                */
+                */}
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <input
@@ -178,9 +197,10 @@ class Home extends Component {
                         {errors.currencyType && (<div className="invalid-feedback">{errors.currencyType}</div>)}
                     </div>
                     <div className="form-group">
-                        <button type="submit" className="btn btn-primary">
+                        <button disabled={this.state.spinner} type="submit" className="btn btn-primary">
                             Transfer
                         </button>
+
                     </div>
                 </form>
             </div>
@@ -199,25 +219,16 @@ class Home extends Component {
     }
 }
 
-/*
-  All we need from the container
-*/
 Home.propTypes = {
     newTransfer: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
     transfer:PropTypes.object.isRequired,
 };
 
-/*
-  All we need from the container
-*/
 const mapStateToProps = (state) => ({
     auth: state.auth,
     errors: state.errors,
     transfer:state.transfer
 });
 
-/*
-  Connect to container
-*/
 export default connect(mapStateToProps,{newTransfer})(withRouter(Home));
