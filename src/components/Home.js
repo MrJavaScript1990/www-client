@@ -1,20 +1,39 @@
+/*
+
+Home Component is responsible for showing user the transfer page and if user is not logged
+ask user to sign in.
+
+*/
+
+// Normal imports
+
 import React, {Component} from 'react';
 import connect from "react-redux/es/connect/connect";
 import {withRouter} from "react-router-dom";
 import classnames from "classnames";
 import PropTypes from 'prop-types';
+
+
+
+/*
+
+helper function import . this function is used to to transfer
+funds between users
+
+*/
+
 import {newTransfer} from "../actions/transfer";
 
 class Home extends Component {
     constructor() {
         super();
         this.state = {
-            srcUser: '',
-            dstUser: '',
+            srcUser: '',                        //Source User Email
+            dstUser: '',                        //Destination User Email
             amount: '',
             currencyType: '',
             errors: {},
-            transfer:{},
+            transfer:{},                        //Data that will back from props and indicates if transfer was successful
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -38,6 +57,9 @@ class Home extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
+
+        //get the new  props from container and put them into component state.
+
         if (nextProps.errors) {
             this.setState({
                 errors: nextProps.errors
@@ -59,26 +81,44 @@ class Home extends Component {
     }
 
     componentDidMount() {
+
+        //if user is logged in write the Sender email into state
+
         if (this.props && this.props.auth && this.props.auth.user && this.props.auth.user.email) {
             this.setState({srcUser: this.props.auth.user.email});
         }
     }
 
     render() {
-        const {isAuthenticated, user} = this.props.auth;
+
+        //get user login situation from container
+        const {isAuthenticated} = this.props.auth;
+
+        //get the errors and transfer results
         const {errors,transfer} = this.state;
+
+        // if user is not logged in we show him this
         const notAuthenticated =
             <div>
                 <h1 style={{margin:20}}>Please Use Sign in button to login</h1>
             </div>
 
+        // if user is logged in we show him this
         const Authenticated =
             <div className="container" style={{marginTop: '50px', width: '700px'}}>
                 <h2 style={{marginBottom: '40px'}}>Transfer</h2>
+
+                /*
+                some error and success message implementation to show to user
+                */
                 {errors.errText && (<h6 style={{marginBottom:15,color:'red'}}>{errors.errText}</h6>)}
                 {transfer.message && (<h6 style={{marginBottom:15,color:'green'}}>{transfer.message}</h6>)}
                 {errors.errText && (<h6 style={{marginBottom:15,color:'red'}}>{'Transaction reference : '+ errors.refNumber}</h6>)}
                 {transfer.message && (<h6 style={{marginBottom:15,color:'green'}}>{'Transaction reference : ' + transfer.ref}</h6>)}
+
+                /*
+                form to get the data from user
+                */
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <input
@@ -144,7 +184,9 @@ class Home extends Component {
                     </div>
                 </form>
             </div>
-
+        /*
+           Show user the correct screen
+        */
         if (isAuthenticated) {
             {
                 return Authenticated
@@ -157,16 +199,25 @@ class Home extends Component {
     }
 }
 
+/*
+  All we need from the container
+*/
 Home.propTypes = {
     newTransfer: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
     transfer:PropTypes.object.isRequired,
 };
 
+/*
+  All we need from the container
+*/
 const mapStateToProps = (state) => ({
     auth: state.auth,
     errors: state.errors,
     transfer:state.transfer
 });
 
+/*
+  Connect to container
+*/
 export default connect(mapStateToProps,{newTransfer})(withRouter(Home));
