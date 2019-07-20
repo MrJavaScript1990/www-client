@@ -80,11 +80,11 @@ class Home extends Component {
                 {errors.errText && (<h6 style={{marginBottom:15,color:'red'}}>{'Transaction reference : '+ errors.refNumber}</h6>)}
                 {transfer.message && (<h6 style={{marginBottom:15,color:'green'}}>{'Transaction reference : ' + transfer.ref}</h6>)}
                 <form onSubmit={this.handleSubmit}>
-
                     <div className="form-group">
                         <input
                             disabled={true}
                             type="text"
+                            maxLength={100}
                             placeholder="Sender e-mail"
                             className={classnames('form-control form-control-lg', {
                                 'is-invalid': errors.srcUser
@@ -98,6 +98,7 @@ class Home extends Component {
                     <div className="form-group">
                         <input
                             type="text"
+                            maxLength={100}
                             placeholder="Receiver e-mail"
                             className={classnames('form-control form-control-lg', {
                                 'is-invalid': errors.dstUser
@@ -111,6 +112,7 @@ class Home extends Component {
                     <div className="form-group">
                         <input
                             type="text"
+                            maxLength={50}
                             placeholder="Amount"
                             className={classnames('form-control form-control-lg', {
                                 'is-invalid': errors.amount
@@ -124,7 +126,8 @@ class Home extends Component {
                     <div className="form-group">
                         <input
                             type="text"
-                            placeholder="Wallet Type , 'B' for Bitcoin and 'E' for Ethereium"
+                            maxLength={1}
+                            placeholder="Wallet Type , 'B' for Bitcoin and 'E' for Ethereum"
                             className={classnames('form-control form-control-lg', {
                                 'is-invalid': errors.currencyType
                             })}

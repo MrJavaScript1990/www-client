@@ -62,7 +62,7 @@ class Transactions extends Component {
                     <th className="table-info text-center">{item.dstEmail}</th>
                     <th className="table-danger text-center">{item.dstUid}</th>
                     <th className="table-info text-center">{item.amount}</th>
-                    <th className="table-danger text-center">{item.currencyType === 'B' ? 'Bitcoin' : 'Ethereium'}</th>
+                    <th className="table-danger text-center">{item.currencyType === 'B' ? 'Bitcoin' : 'Ethereum'}</th>
                     <th className="table-info text-center">{moment(Date(item.timeStampCreated)).format('MM/DD hh:mm:ss')}</th>
                     <th className="table-danger text-center">{moment(Date(item.timeStampProcessed)).format('MM/DD hh:mm:ss')}</th>
                     <th className="table-info text-center">{item.state}</th>

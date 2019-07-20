@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { registerUser } from '../actions/authentication';
 import classnames from 'classnames';
-
+import randomstring from 'randomstring'
 class Register extends Component {
 
     constructor() {
@@ -14,8 +14,8 @@ class Register extends Component {
             email: '',
             password: '',
             password_confirm: '',
-            ethereumWalletId:'',
-            bitcoinWalletId:'',
+            ethereumWalletId:randomstring.generate(42),
+            bitcoinWalletId:randomstring.generate(32),
             bitcoinBalance:'',
             ethereumBalance:'',
             maxTransferLimit:'',
@@ -61,6 +61,7 @@ class Register extends Component {
     }
 
     componentDidMount() {
+
         if(this.props.auth.isAuthenticated) {
             this.props.history.push('/');
         }
@@ -75,6 +76,7 @@ class Register extends Component {
                 <div className="form-group">
                     <input
                     type="text"
+                    maxLength={100}
                     placeholder="Name"
                     className={classnames('form-control form-control-lg', {
                         'is-invalid': errors.name
@@ -88,6 +90,7 @@ class Register extends Component {
                 <div className="form-group">
                     <input
                     type="email"
+                    maxLength={100}
                     placeholder="Email"
                     className={classnames('form-control form-control-lg', {
                         'is-invalid': errors.email
@@ -101,6 +104,7 @@ class Register extends Component {
                 <div className="form-group">
                     <input
                     type="password"
+                    maxLength={100}
                     placeholder="Password"
                     className={classnames('form-control form-control-lg', {
                         'is-invalid': errors.password
@@ -114,6 +118,7 @@ class Register extends Component {
                 <div className="form-group">
                     <input
                     type="password"
+                    maxLength={100}
                     placeholder="Confirm Password"
                     className={classnames('form-control form-control-lg', {
                         'is-invalid': errors.password_confirm
@@ -127,6 +132,7 @@ class Register extends Component {
                 <div className="form-group">
                     <input
                         type="text"
+                        maxLength={1023}
                         placeholder="Description"
                         className={classnames('form-control form-control-lg', {
                             'is-invalid': errors.description
@@ -137,9 +143,13 @@ class Register extends Component {
                     />
                     {errors.description && (<div className="invalid-feedback">{errors.description}</div>)}
                 </div>
+                <hr/>
+                <hr/>
                 <div className="form-group">
+                    <h6>Bitcoin Wallet ID</h6>
                     <input
                         type="text"
+                        maxLength={32}
                         placeholder="Bitcoin Wallet ID"
                         className={classnames('form-control form-control-lg', {
                             'is-invalid': errors.bitcoinWalletId
@@ -151,22 +161,10 @@ class Register extends Component {
                     {errors.bitcoinWalletId && (<div className="invalid-feedback">{errors.bitcoinWalletId}</div>)}
                 </div>
                 <div className="form-group">
+                    <h6>Ethereum Wallet ID</h6>
                     <input
                         type="text"
-                        placeholder="Bitcoin Wallet Balance"
-                        className={classnames('form-control form-control-lg', {
-                            'is-invalid': errors.bitcoinBalance
-                        })}
-                        name="bitcoinBalance"
-                        onChange={ this.handleInputChange }
-                        value={ this.state.bitcoinBalance }
-                    />
-                    {errors.bitcoinBalance && (<div className="invalid-feedback">{errors.bitcoinBalance}</div>)}
-                </div>
-
-                <div className="form-group">
-                    <input
-                        type="text"
+                        maxLength={42}
                         placeholder="Ethereum Wallet ID"
                         className={classnames('form-control form-control-lg', {
                             'is-invalid': errors.ethereumWalletId
@@ -177,10 +175,29 @@ class Register extends Component {
                     />
                     {errors.ethereumWalletId && (<div className="invalid-feedback">{errors.ethereumWalletId}</div>)}
                 </div>
+                <hr/>
+                <hr/>
+                <div className="form-group">
+                    <input
+                        type="text"
+                        placeholder="Bitcoin Wallet Balance"
+                        maxLength={50}
+                        className={classnames('form-control form-control-lg', {
+                            'is-invalid': errors.bitcoinBalance
+                        })}
+                        name="bitcoinBalance"
+                        onChange={ this.handleInputChange }
+                        value={ this.state.bitcoinBalance }
+                    />
+                    {errors.bitcoinBalance && (<div className="invalid-feedback">{errors.bitcoinBalance}</div>)}
+                </div>
+
+
                 <div className="form-group">
                     <input
                         type="text"
                         placeholder="Ethereum Wallet Balance"
+                        maxLength={50}
                         className={classnames('form-control form-control-lg', {
                             'is-invalid': errors.ethereumBalance
                         })}
@@ -194,6 +211,7 @@ class Register extends Component {
                     <input
                         type="text"
                         placeholder="Max Transfer Limit"
+                        maxLength={50}
                         className={classnames('form-control form-control-lg', {
                             'is-invalid': errors.maxTransferLimit
                         })}
