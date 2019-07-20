@@ -1,10 +1,20 @@
+
+/*
+  This component helps user to Register
+*/
+
+//imports
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { registerUser } from '../actions/authentication';
 import classnames from 'classnames';
+
+//A library used to create random strings
 import randomstring from 'randomstring'
+
+
 class Register extends Component {
 
     constructor() {
@@ -14,8 +24,8 @@ class Register extends Component {
             email: '',
             password: '',
             password_confirm: '',
-            ethereumWalletId:randomstring.generate(42),
-            bitcoinWalletId:randomstring.generate(32),
+            ethereumWalletId:randomstring.generate(42), //random string for wallet ID
+            bitcoinWalletId:randomstring.generate(32),  //random string for wallet ID
             bitcoinBalance:'',
             ethereumBalance:'',
             maxTransferLimit:'',
@@ -26,12 +36,14 @@ class Register extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    //Helper function to put the values from text boxes to state
     handleInputChange(e) {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
 
+    //Helper function to submit info using registerUser
     handleSubmit(e) {
         e.preventDefault();
         const user = {
@@ -49,6 +61,7 @@ class Register extends Component {
         this.props.registerUser(user, this.props.history);
     }
 
+    //if user is already logged in redirect it to home
     componentWillReceiveProps(nextProps) {
         if(nextProps.auth.isAuthenticated) {
             this.props.history.push('/')
@@ -60,6 +73,7 @@ class Register extends Component {
         }
     }
 
+    //if user is already logged in redirect it to home
     componentDidMount() {
 
         if(this.props.auth.isAuthenticated) {
@@ -69,6 +83,10 @@ class Register extends Component {
 
     render() {
         const { errors } = this.state;
+
+        /*
+            form to get the data from user
+        */
         return(
         <div className="container" style={{ marginTop: '50px', width: '700px'}}>
             <h2 style={{marginBottom: '40px'}}>Registration</h2>
@@ -232,14 +250,21 @@ class Register extends Component {
     }
 }
 
+/*
+  All we need from the container
+*/
 Register.propTypes = {
     registerUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired
 };
 
+/*
+  All we need from the container
+*/
 const mapStateToProps = state => ({
     auth: state.auth,
     errors: state.errors
 });
 
+//Connect to containers state
 export default connect(mapStateToProps,{ registerUser })(withRouter(Register))

@@ -1,3 +1,7 @@
+/*
+  This component helps user to login using email and password
+*/
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -17,11 +21,13 @@ class Login extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    //Helper function to put the values from text boxes to state
     handleInputChange(e) {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
+
 
     handleSubmit(e) {
         e.preventDefault();
@@ -32,12 +38,14 @@ class Login extends Component {
         this.props.loginUser(user);
     }
 
+    //if user is already logged in redirect it to home
     componentDidMount() {
         if(this.props.auth.isAuthenticated) {
             this.props.history.push('/');
         }
     }
 
+    //if user is already logged in redirect it to home
     componentWillReceiveProps(nextProps) {
         if(nextProps.auth.isAuthenticated) {
             this.props.history.push('/')
@@ -52,6 +60,10 @@ class Login extends Component {
     render() {
         const {errors} = this.state;
         return(
+
+        /*
+            form to get the data from user
+        */
         <div className="container" style={{ marginTop: '50px', width: '700px'}}>
             <h2 style={{marginBottom: '40px'}}>Login</h2>
             <form onSubmit={ this.handleSubmit }>
@@ -92,15 +104,24 @@ class Login extends Component {
     }
 }
 
+/*
+  All we need from the container
+*/
 Login.propTypes = {
     loginUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired
 }
 
+/*
+  All we need from the container
+*/
 const mapStateToProps = (state) => ({
     auth: state.auth,
     errors: state.errors
 })
 
+/*
+  Connect to  the container state
+*/
 export  default connect(mapStateToProps, { loginUser })(Login)

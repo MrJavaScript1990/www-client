@@ -3,9 +3,17 @@ import { GET_ERRORS, SET_CURRENT_USER } from './types';
 import setAuthToken from '../setAuthToken';
 import jwt_decode from 'jwt-decode';
 
+/*
+  Auth Functions:
+*/
+
+
+/*
+  Call the Api for registering the user and get the feed back
+*/
 export const registerUser = (user, history) => dispatch => {
     axios.post('/api/users/register', user)
-            .then(res => history.push('/login'))
+            .then(res => history.push('/login'))    // Redirect to Login page after a Successful register
             .catch(err => {
                 dispatch({
                     type: GET_ERRORS,
@@ -14,6 +22,9 @@ export const registerUser = (user, history) => dispatch => {
             });
 }
 
+/*
+  Call the Api for Logging the user in and get the feed back
+*/
 export const loginUser = (user) => dispatch => {
     axios.post('/api/users/login', user)
             .then(res => {
@@ -31,6 +42,8 @@ export const loginUser = (user) => dispatch => {
             });
 }
 
+//Action Creator to handle login and logout
+
 export const setCurrentUser = decoded => {
     return {
         type: SET_CURRENT_USER,
@@ -38,6 +51,9 @@ export const setCurrentUser = decoded => {
     }
 }
 
+/*
+  Call the Api for Logging out user in and get the feed back
+*/
 export const logoutUser = (history) => dispatch => {
     localStorage.removeItem('jwtToken');
     setAuthToken(false);

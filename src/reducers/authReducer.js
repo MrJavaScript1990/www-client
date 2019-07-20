@@ -1,6 +1,12 @@
 import { SET_CURRENT_USER } from '../actions/types';
 import isEmpty from '../validation/isEmpty';
 
+
+/*
+  Auth Reducer:
+  set correct payload to the state of the container
+*/
+
 const initialState = {
     isAuthenticated: false,
     user: {}
