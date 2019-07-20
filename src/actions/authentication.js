@@ -14,7 +14,7 @@ import {ServerAddress} from "./server";
 */
 export const registerUser = (user, history) => dispatch => {
     //alert(ServerAddress+'/api/users/register');
-    axios.post(ServerAddress+'/api/users/register', user)
+    axios.post('/api/users/register', user)
             .then(res => history.push('/login'))    // Redirect to Login page after a Successful register
             .catch(err => {
                 dispatch({
@@ -28,7 +28,7 @@ export const registerUser = (user, history) => dispatch => {
   Call the Api for Logging the user in and get the feed back
 */
 export const loginUser = (user) => dispatch => {
-    axios.post(ServerAddress+'/api/users/login', user)
+    axios.post('/api/users/login', user)
             .then(res => {
                 const { token } = res.data;
                 localStorage.setItem('jwtToken', token);
