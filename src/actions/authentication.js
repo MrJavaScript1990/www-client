@@ -2,6 +2,7 @@ import axios from 'axios';
 import { GET_ERRORS, SET_CURRENT_USER } from './types';
 import setAuthToken from '../setAuthToken';
 import jwt_decode from 'jwt-decode';
+import {ServerAddress} from "./server";
 
 /*
   Auth Functions
@@ -12,7 +13,8 @@ import jwt_decode from 'jwt-decode';
   Call the Api for registering the user and get the feed back
 */
 export const registerUser = (user, history) => dispatch => {
-    axios.post('/api/users/register', user)
+    //alert(ServerAddress+'/api/users/register');
+    axios.post(ServerAddress+'/api/users/register', user)
             .then(res => history.push('/login'))    // Redirect to Login page after a Successful register
             .catch(err => {
                 dispatch({
@@ -26,7 +28,7 @@ export const registerUser = (user, history) => dispatch => {
   Call the Api for Logging the user in and get the feed back
 */
 export const loginUser = (user) => dispatch => {
-    axios.post('/api/users/login', user)
+    axios.post(ServerAddress+'/api/users/login', user)
             .then(res => {
                 const { token } = res.data;
                 localStorage.setItem('jwtToken', token);

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {GET_ERRORS, INVALID_TRANSACTION, REMOVE_ERRORS, VALID_TRANSACTION} from './types';
-
+import {ServerAddress} from "./server";
 /*
   Transfer Function :
   if its Successful it will return 200 and a refrence to the transaction or
@@ -8,7 +8,7 @@ import {GET_ERRORS, INVALID_TRANSACTION, REMOVE_ERRORS, VALID_TRANSACTION} from 
 */
 
 export const newTransfer = (transferData, history) => dispatch => {
-    axios.post('/api/jobs/addjob', transferData)
+    axios.post(ServerAddress+'/api/jobs/addjob', transferData)
             .then(res => {
                 dispatch({
                     type: VALID_TRANSACTION,
