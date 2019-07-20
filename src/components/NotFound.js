@@ -1,3 +1,7 @@
+/*
+  This  is the 404 component .we show it to user when he wants
+  to go to a route that is not exist
+*/
 import React from 'react';
 
 function NotFound() {

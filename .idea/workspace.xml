@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31900509-3490-43e6-b2bb-2a5c01af3eb5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/actions/authentication.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/authentication.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/authReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NotFound.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NotFound.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -56,7 +55,7 @@
           <entry key="babelrc" value="7" />
           <entry key="css" value="9" />
           <entry key="html" value="13" />
-          <entry key="js" value="5793" />
+          <entry key="js" value="6033" />
           <entry key="json" value="10" />
         </counts>
       </usages-collector>
@@ -65,7 +64,7 @@
           <entry key="CSS" value="9" />
           <entry key="HTML" value="13" />
           <entry key="JSON" value="17" />
-          <entry key="JavaScript" value="5793" />
+          <entry key="JavaScript" value="6033" />
         </counts>
       </usages-collector>
     </session>
@@ -117,7 +116,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/reducers/errorReducer.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="198">
@@ -141,18 +140,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/NotFound.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="44">
+              <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Navbar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="41" column="58" selection-start-line="41" selection-start-column="58" selection-end-line="41" selection-end-column="58" />
+            <state relative-caret-position="-44">
+              <caret line="59" column="10" selection-start-line="59" selection-start-column="10" selection-end-line="59" selection-end-column="10" />
               <folding>
+                <element signature="n#!!doc" expanded="true" />
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
             </state>
@@ -226,8 +226,6 @@
         <option value="$PROJECT_DIR$/src/reducers/transactionReducer.js" />
         <option value="$PROJECT_DIR$/.babelrc" />
         <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/components/NotFound.js" />
-        <option value="$PROJECT_DIR$/src/components/Navbar.js" />
         <option value="$PROJECT_DIR$/src/setAuthToken.js" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -242,6 +240,8 @@
         <option value="$PROJECT_DIR$/src/components/Login.js" />
         <option value="$PROJECT_DIR$/src/components/Register.js" />
         <option value="$PROJECT_DIR$/src/reducers/authReducer.js" />
+        <option value="$PROJECT_DIR$/src/components/Navbar.js" />
+        <option value="$PROJECT_DIR$/src/components/NotFound.js" />
       </list>
     </option>
   </component>
@@ -346,12 +346,12 @@
       <updated>1563342151353</updated>
       <workItem from="1563342154579" duration="49031000" />
       <workItem from="1563548576294" duration="304000" />
-      <workItem from="1563578099418" duration="6805000" />
+      <workItem from="1563578099418" duration="8111000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56140000" />
+    <option name="totallyTimeSpent" value="57446000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -372,7 +372,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="GraphQL" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.44680852" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.15177305" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -519,23 +519,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/NotFound.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Navbar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="41" column="58" selection-start-line="41" selection-start-column="58" selection-end-line="41" selection-end-column="58" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/actions/authentication.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="452">
@@ -609,6 +592,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/NotFound.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Navbar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-44">
+          <caret line="59" column="10" selection-start-line="59" selection-start-column="10" selection-end-line="59" selection-end-column="10" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

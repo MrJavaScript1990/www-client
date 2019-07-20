@@ -4,6 +4,7 @@ import authReducer from './authReducer';
 import transferReducer from './transferReducer';
 import transactionReducer from './transactionReducer'
 
+
 export default combineReducers({
     errors: errorReducer,
     auth: authReducer,

@@ -1,3 +1,7 @@
+/*
+  A simple Navbar component  that can redirect user or log him out
+*/
+
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -14,6 +18,12 @@ class Navbar extends Component {
 
     render() {
         const {isAuthenticated, user} = this.props.auth;
+
+        /*
+          Links that we show to user when he is
+          logged in
+        */
+
         const authLinks = (
             <ul className="navbar-nav ml-auto">
                 <a href="" className="nav-link" onClick={this.onLogout.bind(this)}>
@@ -29,7 +39,12 @@ class Navbar extends Component {
                     Transfer
                 </a>
             </ul>
-        )
+        );
+
+        /*
+          Links that we show to user when he is
+          a guest
+        */
         const guestLinks = (
             <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
@@ -42,7 +57,7 @@ class Navbar extends Component {
                     <Link className="nav-link" to="/">Home</Link>
                 </li>
             </ul>
-        )
+        );
         return (
             <nav className="navbar navbar-expand-lg">
                 <div id="navbarSupportedContent">
