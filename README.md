@@ -19,4 +19,4 @@ To run it on localhost:
 3.  both Redis and MongoDB databases are remote so no further 
     configuration needed
     
-4.  Navigate to http://localhost:3000
+4.  Navigate to **http://localhost:3000**
