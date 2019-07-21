@@ -6,8 +6,8 @@ To run it on localhost:
     **https://github.com/MrJavaScript1990/server** 
     it will run by default on **http://localhost:5000**
     go to folder of the project and run 
-    yarn
-    yarn start 
+    $ yarn
+    $ yarn start 
 
 2.  clone client project 
     **https://github.com/MrJavaScript1990/www-client**
