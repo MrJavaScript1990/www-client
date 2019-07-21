@@ -1,6 +1,5 @@
 import axios from 'axios';
 import {BATCH_TRANSACTIONS,FIELD_BATCH_TRANSACTIONS} from './types';
-import {ServerAddress} from "./server";
 /*
   Transaction Function
 */
@@ -11,7 +10,7 @@ import {ServerAddress} from "./server";
 */
 
 export const transactionRequest = (transactionData) => dispatch => {
-    axios.post(ServerAddress+'/api/jobs/transactions', transactionData)
+    axios.post('/api/jobs/transactions', transactionData)
         .then(res => {
             dispatch({
                 type: BATCH_TRANSACTIONS,

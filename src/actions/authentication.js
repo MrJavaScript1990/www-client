@@ -2,7 +2,6 @@ import axios from 'axios';
 import { GET_ERRORS, SET_CURRENT_USER } from './types';
 import setAuthToken from '../setAuthToken';
 import jwt_decode from 'jwt-decode';
-import {ServerAddress} from "./server";
 
 /*
   Auth Functions
@@ -13,7 +12,6 @@ import {ServerAddress} from "./server";
   Call the Api for registering the user and get the feed back
 */
 export const registerUser = (user, history) => dispatch => {
-    //alert(ServerAddress+'/api/users/register');
     axios.post('/api/users/register', user)
             .then(res => history.push('/login'))    // Redirect to Login page after a Successful register
             .catch(err => {
