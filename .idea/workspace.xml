@@ -58,7 +58,7 @@
           <entry key="html" value="13" />
           <entry key="js" value="7480" />
           <entry key="json" value="50" />
-          <entry key="md" value="554" />
+          <entry key="md" value="565" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -67,7 +67,7 @@
           <entry key="HTML" value="13" />
           <entry key="JSON" value="57" />
           <entry key="JavaScript" value="7480" />
-          <entry key="Markdown" value="554" />
+          <entry key="Markdown" value="565" />
         </counts>
       </usages-collector>
     </session>
@@ -139,8 +139,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="198">
-                <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+              <first_editor relative-caret-position="352">
+                <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
               </first_editor>
               <second_editor />
             </state>
@@ -345,18 +345,17 @@
       <workItem from="1563342154579" duration="49031000" />
       <workItem from="1563548576294" duration="304000" />
       <workItem from="1563578099418" duration="28612000" />
-      <workItem from="1563670841784" duration="1985000" />
+      <workItem from="1563670841784" duration="2180000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79932000" />
+    <option name="totallyTimeSpent" value="80127000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.35095835" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.35095835" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -371,7 +370,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="GraphQL" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.35744682" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.35744682" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -461,6 +460,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
           <caret line="87" column="2" selection-start-line="87" selection-start-column="2" selection-end-line="87" selection-end-column="2" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -593,8 +595,8 @@
       <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="198">
-            <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+          <first_editor relative-caret-position="352">
+            <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
           </first_editor>
           <second_editor />
         </state>
